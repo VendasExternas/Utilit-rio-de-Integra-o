@@ -1,0 +1,11 @@
+.gradle
+.idea
+!gradle-wrapper.jar
+*.jar
+*.war
+*.ear
+.mtj.tmp/
+/out/
+/build/
+retorno.txt
+log4j-application.log
