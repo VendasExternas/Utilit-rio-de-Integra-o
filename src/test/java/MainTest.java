@@ -139,4 +139,37 @@ class MainTest {
 
 		assertFalse(FileUtils.readFileToString(new File("retorno.txt"), "UTF-8").contains("ERRO"));
 	}
+
+	@Test
+	void importacaoProdutos() throws IOException {
+		String[] parametros = new String[]{
+				"-importar",
+				"-endpoint", "produtos"
+		};
+		Main.main(parametros);
+
+		assertFalse(FileUtils.readFileToString(new File("retorno.txt"), "UTF-8").contains("ERRO"));
+	}
+
+	@Test
+	void importacaoClientes() throws IOException {
+		String[] parametros = new String[]{
+				"-importar",
+				"-endpoint", "clientes"
+		};
+		Main.main(parametros);
+
+		assertFalse(FileUtils.readFileToString(new File("retorno.txt"), "UTF-8").contains("ERRO"));
+	}
+
+	@Test
+	void importacaoAtendimentos() throws IOException {
+		String[] parametros = new String[]{
+				"-importar",
+				"-endpoint", "atendimentos"
+		};
+		Main.main(parametros);
+
+		assertFalse(FileUtils.readFileToString(new File("retorno.txt"), "UTF-8").contains("ERRO"));
+	}
 }

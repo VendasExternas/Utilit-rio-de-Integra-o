@@ -35,7 +35,13 @@ public class PostRequest extends RequestService {
 		else {
 			CommandLine commandLine = new DefaultParser().parse(options, args, true);
 			endpoint = commandLine.getOptionValue("endpoint");
-			data = FileUtils.readFileToString(new File(commandLine.getOptionValue("dados")), "UTF-8");
+			File file = new File(commandLine.getOptionValue("dados"));
+
+			if (file.exists())
+				data = FileUtils.readFileToString(file, "UTF-8");
+			else
+				data = commandLine.getOptionValue("dados");
+
 			validateRequest();
 
 			RequestConfiguration request = new RequestConfiguration();

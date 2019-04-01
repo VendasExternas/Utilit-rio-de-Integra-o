@@ -1,0 +1,95 @@
+package br.com.alkord.utilitarioIntegracao.integracaoViaArquivo.beans.pessoa;
+
+public class PessoaFiscal {
+
+	private String REGIME_TRIBUTARIO;
+	private String SIMPLES_NACIONAL = "N";
+	private String ICMS_NAO_CONTRIBUINTE = "N";
+	private String ICMS_ST_REGIME_ESPECIAL = "N";
+	private String ICMS_GERAR_CREDITO = "N";
+	private String SUFRAMA;
+	private String TRANSPORTADORA_CODIGO_RNTRC;
+	private String SITUACAO_RECEITA_FEDERAL;
+	private String NFE_CPROD_CODIGO_BARRAS;
+	private String CONSUMIDOR_FINAL = "N";
+
+	public String getREGIME_TRIBUTARIO() {
+		return REGIME_TRIBUTARIO;
+	}
+
+	public void setREGIME_TRIBUTARIO(String REGIME_TRIBUTARIO) {
+		this.REGIME_TRIBUTARIO = REGIME_TRIBUTARIO;
+	}
+
+	public String getSIMPLES_NACIONAL() {
+		return SIMPLES_NACIONAL;
+	}
+
+	public void setSIMPLES_NACIONAL(String SIMPLES_NACIONAL) {
+		this.SIMPLES_NACIONAL = SIMPLES_NACIONAL;
+	}
+
+	public String getICMS_NAO_CONTRIBUINTE() {
+		return ICMS_NAO_CONTRIBUINTE;
+	}
+
+	public void setICMS_NAO_CONTRIBUINTE(String ICMS_NAO_CONTRIBUINTE) {
+		this.ICMS_NAO_CONTRIBUINTE = ICMS_NAO_CONTRIBUINTE;
+	}
+
+	public String getICMS_ST_REGIME_ESPECIAL() {
+		return ICMS_ST_REGIME_ESPECIAL;
+	}
+
+	public void setICMS_ST_REGIME_ESPECIAL(String ICMS_ST_REGIME_ESPECIAL) {
+		this.ICMS_ST_REGIME_ESPECIAL = ICMS_ST_REGIME_ESPECIAL;
+	}
+
+	public String getICMS_GERAR_CREDITO() {
+		return ICMS_GERAR_CREDITO;
+	}
+
+	public void setICMS_GERAR_CREDITO(String ICMS_GERAR_CREDITO) {
+		this.ICMS_GERAR_CREDITO = ICMS_GERAR_CREDITO;
+	}
+
+	public String getSUFRAMA() {
+		return SUFRAMA;
+	}
+
+	public void setSUFRAMA(String SUFRAMA) {
+		this.SUFRAMA = SUFRAMA;
+	}
+
+	public String getTRANSPORTADORA_CODIGO_RNTRC() {
+		return TRANSPORTADORA_CODIGO_RNTRC;
+	}
+
+	public void setTRANSPORTADORA_CODIGO_RNTRC(String TRANSPORTADORA_CODIGO_RNTRC) {
+		this.TRANSPORTADORA_CODIGO_RNTRC = TRANSPORTADORA_CODIGO_RNTRC;
+	}
+
+	public String getSITUACAO_RECEITA_FEDERAL() {
+		return SITUACAO_RECEITA_FEDERAL;
+	}
+
+	public void setSITUACAO_RECEITA_FEDERAL(String SITUACAO_RECEITA_FEDERAL) {
+		this.SITUACAO_RECEITA_FEDERAL = SITUACAO_RECEITA_FEDERAL;
+	}
+
+	public String getNFE_CPROD_CODIGO_BARRAS() {
+		return NFE_CPROD_CODIGO_BARRAS;
+	}
+
+	public void setNFE_CPROD_CODIGO_BARRAS(String NFE_CPROD_CODIGO_BARRAS) {
+		this.NFE_CPROD_CODIGO_BARRAS = NFE_CPROD_CODIGO_BARRAS;
+	}
+
+	public String getCONSUMIDOR_FINAL() {
+		return CONSUMIDOR_FINAL;
+	}
+
+	public void setCONSUMIDOR_FINAL(String CONSUMIDOR_FINAL) {
+		this.CONSUMIDOR_FINAL = CONSUMIDOR_FINAL;
+	}
+}

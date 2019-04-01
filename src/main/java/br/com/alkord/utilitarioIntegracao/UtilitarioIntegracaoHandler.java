@@ -1,5 +1,6 @@
 package br.com.alkord.utilitarioIntegracao;
 
+import br.com.alkord.utilitarioIntegracao.integracaoViaArquivo.ImportProcessor;
 import br.com.alkord.utilitarioIntegracao.requestMethods.DeleteRequest;
 import br.com.alkord.utilitarioIntegracao.requestMethods.GetRequest;
 import br.com.alkord.utilitarioIntegracao.requestMethods.PostRequest;
@@ -7,23 +8,28 @@ import br.com.alkord.utilitarioIntegracao.requestMethods.PutRequest;
 import org.apache.commons.cli.*;
 import org.apache.commons.io.FileUtils;
 
+import javax.inject.Inject;
+import javax.inject.Singleton;
 import java.io.File;
 import java.io.IOException;
 
+@Singleton
 class UtilitarioIntegracaoHandler {
 
-	private final GetRequest getRequest;
-	private final PutRequest putRequest;
-	private final PostRequest postRequest;
-	private final DeleteRequest deleteRequest;
+	private GetRequest getRequest;
+	private PutRequest putRequest;
+	private PostRequest postRequest;
+	private DeleteRequest deleteRequest;
+	private ImportProcessor importProcessor;
 
-	UtilitarioIntegracaoHandler() throws Exception {
-		Configurations configurations = new Configurations();
-
-		getRequest = new GetRequest(configurations);
-		putRequest = new PutRequest(configurations);
-		postRequest = new PostRequest(configurations);
-		deleteRequest = new DeleteRequest(configurations);
+	@Inject
+	UtilitarioIntegracaoHandler(GetRequest getRequest, PutRequest putRequest, PostRequest postRequest,
+			DeleteRequest deleteRequest, ImportProcessor importProcessor) {
+		this.getRequest = getRequest;
+		this.putRequest = putRequest;
+		this.postRequest = postRequest;
+		this.deleteRequest = deleteRequest;
+		this.importProcessor = importProcessor;
 	}
 
 	void processar(String[] args) throws Exception {
@@ -40,6 +46,8 @@ class UtilitarioIntegracaoHandler {
 				salvarRetorno(postRequest.executar(args));
 			else if (commandLine.hasOption("deletar"))
 				salvarRetorno(deleteRequest.executar(args));
+			else if (commandLine.hasOption("importar"))
+				salvarRetorno(importProcessor.processIntegration(args));
 		}
 		catch (ParseException exception) {
 			if (Utils.contemHelp(args)) {
@@ -73,6 +81,8 @@ class UtilitarioIntegracaoHandler {
 		primaryGroup.addOption(new Option("atualizar", "operação de atualização de dados"));
 		primaryGroup.addOption(new Option("inserir", "operação de inserção de dados"));
 		primaryGroup.addOption(new Option("deletar", "operação de exclusão de dados"));
+		primaryGroup.addOption(new Option("importar", "operação de importação de dados"));
+		primaryGroup.addOption(new Option("exportar", "operação de exportação de dados"));
 		primaryGroup.setRequired(true);
 		options.addOptionGroup(primaryGroup);
 

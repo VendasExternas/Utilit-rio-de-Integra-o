@@ -13,10 +13,15 @@ public class Configurations {
 	private Properties configurations = new Properties();
 	private Properties tokenData = new Properties();
 
-	Configurations() throws Exception {
-		loadConfigurations();
-		validateRequiredConfigurations();
-		loadTokenData();
+	Configurations() {
+		try {
+			loadConfigurations();
+			validateRequiredConfigurations();
+			loadTokenData();
+		}
+		catch (Exception e) {
+			e.printStackTrace();
+		}
 	}
 
 	private void loadConfigurations() throws Exception {

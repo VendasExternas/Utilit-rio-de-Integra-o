@@ -14,7 +14,8 @@ public class Main {
 
 	private static void carregarModulo(String[] args) throws IOException {
 		try {
-			UtilitarioIntegracaoHandler utilitarioIntegracao = new UtilitarioIntegracaoHandler();
+			AppInjector appInjector = DaggerAppInjector.builder().appModule(new AppModule()).build();
+			UtilitarioIntegracaoHandler utilitarioIntegracao = appInjector.utilitarioIntegracaoHandler();
 			utilitarioIntegracao.processar(args);
 		}
 		catch (ParseException exception) {
