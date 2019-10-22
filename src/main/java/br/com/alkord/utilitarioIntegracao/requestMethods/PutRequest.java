@@ -11,6 +11,7 @@ import org.apache.commons.io.FileUtils;
 import org.apache.commons.lang3.StringUtils;
 
 import java.io.File;
+import java.util.ArrayList;
 
 public class PutRequest extends RequestService {
 
@@ -55,7 +56,14 @@ public class PutRequest extends RequestService {
 
 	@Override
 	public String buildURL() {
-		return apiURL + endpoint + "?token=" + getToken();
+		ArrayList<String> urlParams = new ArrayList<>();
+
+		if (endpoint.equals("integracoes"))
+			urlParams.add("licenca=" + licenca);
+		else if (!endpoint.equals("licencas"))
+			urlParams.add("token=" + getToken());
+
+		return apiURL + endpoint + "?" + String.join("&", urlParams);
 	}
 
 	private Options getOptions() {

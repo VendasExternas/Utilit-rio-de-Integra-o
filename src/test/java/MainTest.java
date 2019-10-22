@@ -43,6 +43,33 @@ class MainTest {
 		assertTrue(FileUtils.readFileToString(new File("retorno.txt"), "UTF-8").contains("TOTAL_REGISTROS"));
 	}
 
+
+	@Test
+	void buscarCllientesComFiltro() throws IOException {
+		String[] parametros = new String[]{
+				"-buscar",
+				"-endpoint", "clientes",
+				"-colunas", "CODIGO,DATA_ALTERACAO",
+				"-filtros", "DATA_ALTERACAO:su:2019-10-10 11:00:19",
+		};
+		Main.main(parametros);
+
+		assertTrue(FileUtils.readFileToString(new File("retorno.txt"), "UTF-8").contains("TOTAL_REGISTROS"));
+	}
+
+	@Test
+	void buscarCllientesComOrdenacao() throws IOException {
+		String[] parametros = new String[]{
+				"-buscar",
+				"-endpoint", "clientes",
+				"-colunas", "CODIGO,TIPO_PESSOA,NOME,APELIDO,DOCUMENTO,DOCUMENTO2,NASCIMENTO_CONSTITUICAO,EXCLUIDO,INTERNET,REGIAO[NOME],EMAILS,TELEFONES,ENDERECOS[TIPO,PRINCIPAL,EXCLUIDO,CEP,ENDERECO,NUMERO,COMPLEMENTO,BAIRRO,CONTATO_ALTERNATIVO,ESTADO[SIGLA],CIDADE[NOME]],REFERENCIAS_INTEGRACAO,DATA_CRIACAO,DATA_ALTERACAO,SEXO,FISCAL,COMERCIAL_VENDA[REPRESENTANTE[CODIGO,NOME,REFERENCIAS_INTEGRACAO],PESSOA,TRANSPORTADORA]",
+				"-ordenacao", "DATA_ALTERACAO ASC",
+		};
+		Main.main(parametros);
+
+		assertTrue(FileUtils.readFileToString(new File("retorno.txt"), "UTF-8").contains("TOTAL_REGISTROS"));
+	}
+
 	@Test
 	void buscarProdutoComFiltros() throws IOException {
 		String[] parametros = new String[]{

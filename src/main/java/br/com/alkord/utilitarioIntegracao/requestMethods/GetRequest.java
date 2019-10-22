@@ -13,6 +13,7 @@ public class GetRequest extends RequestService {
 
 	private String colunas;
 	private String filtros;
+	private String ordenacao;
 
 	public GetRequest(Configurations configurations) {
 		super(configurations);
@@ -34,6 +35,7 @@ public class GetRequest extends RequestService {
 			endpoint = commandLine.getOptionValue("endpoint");
 			colunas = commandLine.getOptionValue("colunas");
 			filtros = commandLine.getOptionValue("filtros");
+			ordenacao = commandLine.getOptionValue("ordenacao");
 			validateRequest();
 
 			RequestConfiguration request = new RequestConfiguration();
@@ -55,12 +57,15 @@ public class GetRequest extends RequestService {
 		if (filtros != null)
 			urlParams.add("filtros=" + filtros);
 
+		if (ordenacao != null)
+			urlParams.add("ordenacao=" + ordenacao);
+
 		if (endpoint.equals("integracoes"))
 			urlParams.add("licenca=" + licenca);
 		else if (!endpoint.equals("licencas"))
 			urlParams.add("token=" + getToken());
 
-		return apiURL + endpoint + "?" + String.join("&", urlParams);
+		return apiURL + endpoint + "?" + String.join("&", urlParams).replaceAll(" ", "%20");
 	}
 
 	private Options getOptions() {
@@ -69,7 +74,8 @@ public class GetRequest extends RequestService {
 		options.addOption(Option.builder("endpoint").hasArg().argName("endpoint")
 				.desc("modelo que deseja processar").required().build());
 		options.addOption(Option.builder("colunas").hasArg().desc("colunas do modelo a serem retornadas").build());
-		options.addOption(Option.builder("filtros").hasArg().desc("parâmetros para filtrar o resultado").build());
+		options.addOption(Option.builder("filtros").hasArg().desc("parâmetro para filtrar o resultado").build());
+		options.addOption(Option.builder("ordenacao").hasArg().desc("parâmetro para ordenar o resultado").build());
 		options.addOption("help", "exibe esta mensagem");
 
 		return options;

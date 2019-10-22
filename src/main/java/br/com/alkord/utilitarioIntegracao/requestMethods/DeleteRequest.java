@@ -9,6 +9,8 @@ import br.com.alkord.utilitarioIntegracao.requestService.RequestService;
 import org.apache.commons.cli.*;
 import org.apache.commons.lang3.StringUtils;
 
+import java.util.ArrayList;
+
 public class DeleteRequest extends RequestService {
 
 	private String codigos;
@@ -45,7 +47,14 @@ public class DeleteRequest extends RequestService {
 
 	@Override
 	public String buildURL() {
-		return apiURL + endpoint + "/" + codigos + "?token=" + getToken();
+		ArrayList<String> urlParams = new ArrayList<>();
+
+		if (endpoint.equals("integracoes"))
+			urlParams.add("licenca=" + licenca);
+		else if (!endpoint.equals("licencas"))
+			urlParams.add("token=" + getToken());
+
+		return apiURL + endpoint + "/" + codigos + "?" + String.join("&", urlParams);
 	}
 
 	private Options getOptions() {
