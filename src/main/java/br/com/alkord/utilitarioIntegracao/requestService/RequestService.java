@@ -15,6 +15,7 @@ import java.io.InputStreamReader;
 import java.io.OutputStream;
 import java.net.HttpURLConnection;
 import java.net.URL;
+import java.nio.charset.StandardCharsets;
 import java.util.Base64;
 
 public abstract class RequestService {
@@ -125,7 +126,7 @@ public abstract class RequestService {
 		final HttpURLConnection connection = (HttpURLConnection) obj.openConnection();
 		connection.setUseCaches(false);
 		connection.setRequestMethod(request.getRequestMethod().getValor());
-		connection.setRequestProperty("Content-Type", "application/json");
+		connection.setRequestProperty("Content-Type", "application/json; charset=UTF-8");
 
 		if (request.hasAuthentication())
 			connection.setRequestProperty("Authorization", "Basic " + request.getBasicAuthorization());
@@ -133,7 +134,7 @@ public abstract class RequestService {
 		if (request.getData() != null) {
 			connection.setDoOutput(true);
 			OutputStream os = connection.getOutputStream();
-			os.write(request.getData().getBytes());
+			os.write(request.getData().getBytes(StandardCharsets.UTF_8));
 			os.flush();
 		}
 

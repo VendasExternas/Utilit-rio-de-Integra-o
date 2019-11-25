@@ -11,6 +11,7 @@ import org.apache.commons.io.FileUtils;
 import org.apache.commons.lang3.StringUtils;
 
 import java.io.File;
+import java.nio.charset.StandardCharsets;
 import java.util.ArrayList;
 
 public class PutRequest extends RequestService {
@@ -38,7 +39,7 @@ public class PutRequest extends RequestService {
 			File file = new File(commandLine.getOptionValue("dados"));
 
 			if (file.exists())
-				data = FileUtils.readFileToString(file, "UTF-8");
+				data = FileUtils.readFileToString(file, StandardCharsets.UTF_8);
 			else
 				data = commandLine.getOptionValue("dados");
 

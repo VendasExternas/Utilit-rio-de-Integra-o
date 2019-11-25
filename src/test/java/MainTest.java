@@ -96,6 +96,18 @@ class MainTest {
 	}
 
 	@Test
+	void inserirClientes() throws IOException {
+		String[] parametros = new String[]{
+				"-inserir",
+				"-endpoint", "clientes",
+				"-dados", getClass().getResource("json/post_clientes.json").getPath()
+		};
+		Main.main(parametros);
+
+		assertTrue(FileUtils.readFileToString(new File("retorno.txt"), "UTF-8").contains("REFERENCIAS"));
+	}
+
+	@Test
 	void inserirProdutos() throws IOException {
 		String[] parametros = new String[]{
 				"-inserir",
