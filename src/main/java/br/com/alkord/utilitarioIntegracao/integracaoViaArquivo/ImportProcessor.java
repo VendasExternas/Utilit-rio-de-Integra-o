@@ -21,7 +21,9 @@ import org.apache.commons.lang3.StringUtils;
 
 import javax.inject.Inject;
 import java.io.File;
+import java.io.FileInputStream;
 import java.io.FileNotFoundException;
+import java.nio.charset.StandardCharsets;
 import java.util.*;
 
 public class ImportProcessor extends Integration {
@@ -169,7 +171,7 @@ public class ImportProcessor extends Integration {
 		int lineIndex = 0;
 
 		String csvFile = "registros_importacao_" + endpoint + ".csv";
-		Scanner scanner = new Scanner(new File(csvFile));
+		Scanner scanner = new Scanner(new FileInputStream(csvFile), StandardCharsets.UTF_8.toString());
 
 		while (scanner.hasNext()) {
 			List<String> line = CSVUtils.parseLine(scanner.nextLine());

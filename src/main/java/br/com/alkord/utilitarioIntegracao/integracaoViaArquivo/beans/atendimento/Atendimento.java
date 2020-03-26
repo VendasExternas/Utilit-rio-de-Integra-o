@@ -55,6 +55,8 @@ public class Atendimento implements APIIdentifierInterface {
 	private String TIPO_DOCUMENTO_FISCAL;
 	private String TOTAL_COMODATO;
 	private String TOTAL_FCP_ST;
+	private String ATENDIMENTO_ACERTO_CONSIGNACAO;
+	private String TIPO_OPERACAO;
 	private AtendimentoTexto TEXTOS;
 	private ArrayList<AtendimentoItem> ITENS;
 	private ArrayList<AtendimentoPagamento> PAGAMENTOS;
@@ -456,5 +458,21 @@ public class Atendimento implements APIIdentifierInterface {
 
 	public void setTEXTOS(AtendimentoTexto TEXTOS) {
 		this.TEXTOS = TEXTOS;
+	}
+
+	public String getATENDIMENTO_ACERTO_CONSIGNACAO() {
+		return ATENDIMENTO_ACERTO_CONSIGNACAO;
+	}
+
+	public void setATENDIMENTO_ACERTO_CONSIGNACAO(String ATENDIMENTO_ACERTO_CONSIGNACAO) {
+		this.ATENDIMENTO_ACERTO_CONSIGNACAO = ATENDIMENTO_ACERTO_CONSIGNACAO;
+	}
+
+	public String getTIPO_OPERACAO() {
+		return TIPO_OPERACAO;
+	}
+
+	public void setTIPO_OPERACAO(String TIPO_OPERACAO) {
+		this.TIPO_OPERACAO = TIPO_OPERACAO;
 	}
 }

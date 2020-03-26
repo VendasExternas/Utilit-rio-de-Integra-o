@@ -7,6 +7,9 @@ CODIGO_BARRAS;codigo_barras;9990000001401;
 FABRICACAO_PROPRIA;fabricacao_propria;S;S ou N
 FABRICANTE.NOME;nome_fabricante;Microsoft;
 NCM;ncm;2930.30.21;
+DISPONIBILIDADE;disponibilidade;E;E - Esgotado, D - Disponível, P - Pré-venda
+CEST;cest;01.001.00;
+ORIGEM;origem;0;0 (Nacional, exceto as indicadas nos códigos 3, 4, 5 e 8), 1 (Estrangeira - Importação direta, exceto a indicada no código 6), 2 (Estrangeira - Adquirida no mercado interno, exceto a indicada no código 7), 3 (Nacional, mercadoria ou bem com Conteúdo de Importação superior a 40% e inferior ou igual a 70%), 4 (Nacional, cuja produção tenha sido feita em conformidade com os processos produtivos básicos de que tratam as legislações citadas nos Ajustes), 5 (Nacional, mercadoria ou bem com Conteúdo de Importação inferior ou igual a 40%)
 UNIDADE_MEDIDA_COMPRA.SIGLA;unidade_compra_sigla;UN.;
 UNIDADE_MEDIDA_COMPRA.NOME;unidade_compra_nome;Unidade;
 UNIDADE_MEDIDA_VENDA.SIGLA;unidade_venda_sigla;UN.;
@@ -18,46 +21,43 @@ PRECOS.PRECO_VENDA;preco;10;
 PRECOS.PRECO_MEDIO;preco_medio;10;
 PRECOS.PRECO_VENDA_MOEDA;preco_venda_moeda;10;
 PRECOS.PRECO_CUSTO_MOEDA;preco_custo_moeda;10;
-INFORMACOES_ADICIONAIS.ACESSO_RAPIDO;acesso_rapido;58541C;
 LIVRO.ISBN;isbn;8575421131;
 LIVRO.EDICAO;edicao;2;
 LIVRO.PAGINAS;paginas;500;
 LIVRO.ANO_PUBLICACAO;publicacao;2012;
 LIVRO.COLECAO;colecao;5;
+LIVRO.ACABAMENTO;acabamento;'Encadernado; brochura';
+LIVRO.CODIGO_TCL;tcl;55444498;
+LINKS.NOME;link;www.site.com.br/manual.pdf;
 ESTOQUES.QUANTIDADE_MINIMA;estoque_quantidade_minima;10;
 ESTOQUES.UNIDADE;estoque_unidade;1;
 ESTOQUES.QUANTIDADE_ATUAL;estoque_atual;100;
-LIVRO.ACABAMENTO;acabamento;'Encadernado; brochura';
+ESTOQUES.QUANTIDADE_RESERVA;estoque_reserva;20;
 TEXTOS.OBSERVACAO;observação;;
 TEXTOS.DESCRICAO;descricao;Teclado sem fio, WIFI;
 PESSOAS.PESSOA.NOME;autores_nomes;'Koffmann, Elliot B.;Weaver, James L.';
+INFORMACOES_ADICIONAIS.ACESSO_RAPIDO;acesso_rapido;58541C;
 INFORMACOES_ADICIONAIS.ALTURA;altura;250;Em centímetros
 INFORMACOES_ADICIONAIS.LARGURA;largura;25;Em centímetros
 INFORMACOES_ADICIONAIS.PESO;peso;50;Em gramas
-LIVRO.CODIGO_TCL;tcl;55444498;
-LINKS.NOME;link;www.site.com.br/manual.pdf;
+INFORMACOES_ADICIONAIS.COMPRIMENTO;comprimento;50;Em centímetros
 TRIBUTARIOS.ICMS_SIMPLES_NACIONAL;icms_SN;T;T - Tributado, N - Não-tributado, I - Imune
 TRIBUTARIOS.IPI_CST_ENTRADA;ipi_cst_entrada;50;
 TRIBUTARIOS.IPI_CST_SAIDA;ipi_cst_saida;50;
 TRIBUTARIOS.IPI_ALIQUOTA;ipi_aliquota;1;
 TRIBUTARIOS.IPI_VALOR_UNIDADE;ipi_valor_unidade;1;
 TRIBUTARIOS.IPI_CLASSE_ENQUADRAMENTO;ipi_enquadramento;999;
-TRIBUTARIOS.PIS_CST;pis_cst;01;
+TRIBUTARIOS.PIS_CST;pis_cst;1;
 TRIBUTARIOS.PIS_ALIQUOTA;pis_aliquota;1.5;
 TRIBUTARIOS.PIS_NATUREZA_RECEITA;pis_natureza;1.5;
-TRIBUTARIOS.COFINS_CST;cofins_cst;01;
+TRIBUTARIOS.COFINS_CST;cofins_cst;1;
 TRIBUTARIOS.COFINS_ALIQUOTA;cofins_aliquota;1.5;
 TRIBUTARIOS.COFINS_NATUREZA_RECEITA;confins_natureza;1.5;
 TRIBUTARIOS.SPED_TIPO_ITEM;sped_tipo_item;A5;
-TRIBUTARIOS.CONTRIBUICAO_SOCIAL_APURADA;contribuicao_social;02;
+TRIBUTARIOS.CONTRIBUICAO_SOCIAL_APURADA;contribuicao_social;2;
 TRIBUTARIOS.TOTAL_TRIBUTOS_TIPO;total_trubuto_tipo;P;P – Percentual, V – Valor
 TRIBUTARIOS.TOTAL_TRIBUTOS_PERCENTUAL;total_tributo_percentual;1.5;
 TRIBUTARIOS.TOTAL_TRIBUTOS_VALOR;total_tributo_valor;1.5;
-INFORMACOES_ADICIONAIS.COMPRIMENTO;comprimento;50;Em centímetros
-DISPONIBILIDADE;disponibilidade;E;E - Esgotado, D - Disponível, P - Pré-venda
-EXCLUIDO;inativo;S;S ou N
-ESTOQUES.QUANTIDADE_RESERVA;estoque_reserva;20;
 FORNECEDORES.FORNECEDOR.NOME;fornecedor_nome;Fornecedor;
 FORNECEDORES.CODIGO_REFERENCIA;fornecedor_codigo;F123;
-CEST;cest;01.001.00;
-ORIGEM;origem;0;0 (Nacional, exceto as indicadas nos códigos 3, 4, 5 e 8), 1 (Estrangeira - Importação direta, exceto a indicada no código 6), 2 (Estrangeira - Adquirida no mercado interno, exceto a indicada no código 7), 3 (Nacional, mercadoria ou bem com Conteúdo de Importação superior a 40% e inferior ou igual a 70%), 4 (Nacional, cuja produção tenha sido feita em conformidade com os processos produtivos básicos de que tratam as legislações citadas nos Ajustes), 5 (Nacional, mercadoria ou bem com Conteúdo de Importação inferior ou igual a 40%)
+EXCLUIDO;inativo;S;S ou N

@@ -45,7 +45,7 @@ class MainTest {
 
 
 	@Test
-	void buscarCllientesComFiltro() throws IOException {
+	void buscarClientesComFiltro() throws IOException {
 		String[] parametros = new String[]{
 				"-buscar",
 				"-endpoint", "clientes",
@@ -58,11 +58,25 @@ class MainTest {
 	}
 
 	@Test
-	void buscarCllientesComOrdenacao() throws IOException {
+	void buscarClientesComOrdenacao() throws IOException {
 		String[] parametros = new String[]{
 				"-buscar",
 				"-endpoint", "clientes",
 				"-colunas", "CODIGO,TIPO_PESSOA,NOME,APELIDO,DOCUMENTO,DOCUMENTO2,NASCIMENTO_CONSTITUICAO,EXCLUIDO,INTERNET,REGIAO[NOME],EMAILS,TELEFONES,ENDERECOS[TIPO,PRINCIPAL,EXCLUIDO,CEP,ENDERECO,NUMERO,COMPLEMENTO,BAIRRO,CONTATO_ALTERNATIVO,ESTADO[SIGLA],CIDADE[NOME]],REFERENCIAS_INTEGRACAO,DATA_CRIACAO,DATA_ALTERACAO,SEXO,FISCAL,COMERCIAL_VENDA[REPRESENTANTE[CODIGO,NOME,REFERENCIAS_INTEGRACAO],PESSOA,TRANSPORTADORA]",
+				"-ordenacao", "DATA_ALTERACAO ASC",
+		};
+		Main.main(parametros);
+
+		assertTrue(FileUtils.readFileToString(new File("retorno.txt"), "UTF-8").contains("TOTAL_REGISTROS"));
+	}
+
+	@Test
+	void buscarClientesComPaginacaoOrdenacao() throws IOException {
+		String[] parametros = new String[]{
+				"-buscar",
+				"-endpoint", "clientes",
+				"-colunas", "CODIGO,TIPO_PESSOA,NOME,APELIDO,DOCUMENTO,DOCUMENTO2,NASCIMENTO_CONSTITUICAO,EXCLUIDO,INTERNET,REGIAO[NOME],EMAILS,TELEFONES,ENDERECOS[TIPO,PRINCIPAL,EXCLUIDO,CEP,ENDERECO,NUMERO,COMPLEMENTO,BAIRRO,CONTATO_ALTERNATIVO,ESTADO[SIGLA],CIDADE[NOME]],REFERENCIAS_INTEGRACAO,DATA_CRIACAO,DATA_ALTERACAO,SEXO,FISCAL,COMERCIAL_VENDA[REPRESENTANTE[CODIGO,NOME,REFERENCIAS_INTEGRACAO],PESSOA,TRANSPORTADORA]",
+				"-registro_inicial", "5",
 				"-ordenacao", "DATA_ALTERACAO ASC",
 		};
 		Main.main(parametros);
